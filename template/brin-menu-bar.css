@@ -1,0 +1,227 @@
+/* ================= Material You Colors ================= */
+:root {
+  /* Material You Core Colors */
+  --md-primary: #E62f2A;          /* primary color */
+  --md-on-primary: #FFFFFF;       /* text/icon on primary */
+  --md-surface: #FFFBFE;          /* background */
+  --md-on-surface: #1C1B1F;       /* text/icon on surface */
+  --md-surface-variant: #E7E0EC;  /* hover/secondary background */
+  --md-shadow: 0 -8px 24px rgba(0,0,0,0.22);
+}
+
+/* ================= Wrapper ================= */
+.tombol {
+  font-family: "Roboto", sans-serif;
+  position: relative;
+}
+
+/* ================= Overlay ================= */
+.tombol .overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.32);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 998;
+}
+
+/* Show overlay when checked */
+#toggle-more:checked ~ .overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ================= Bottom Navigation ================= */
+.tombol .bottom-nav {
+  position: fixed;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 24px);
+  height: 64px;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  background: var(--md-surface);
+  color: var(--md-on-surface);
+
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.18), 0 2px 6px rgba(0,0,0,0.12);
+
+  z-index: 1000;
+}
+
+.tombol .bottom-nav a,
+.tombol .bottom-nav label {
+  flex: 1;
+  text-align: center;
+  font-size: 12px;
+  color: var(--md-on-surface);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.tombol .bottom-nav span {
+  display: block;
+  font-size: 11px;
+}
+
+.tombol .bottom-nav a span.material-symbols-outlined,
+.tombol .bottom-nav label span.material-symbols-outlined {
+  display: block;
+  font-variation-settings: 'wght' 400;
+  font-size: 24px;
+  margin-bottom: 2px;
+}
+
+/* Active tab styling */
+.tombol .bottom-nav a.active,
+.tombol .bottom-nav a.active span.material-symbols-outlined {
+  color: var(--md-primary);
+}
+
+.tombol .bottom-nav a:hover,
+.tombol .bottom-nav label:hover {
+  color: var(--md-primary);
+}
+
+/* ================= Lainnya Menu ================= */
+.tombol .more-menu {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -100%;            /* hidden by default */
+  width: calc(85% - 24px); /* match nav width */
+  max-height: 85vh;
+
+  background: var(--md-surface);
+  border-radius: 24px 24px 0 0; /* only top corners rounded */
+  box-shadow: var(--md-shadow);
+  padding: 16px 16px 24px;
+  overflow-y: auto;
+  transition: bottom 0.35s cubic-bezier(.4,0,.2,1);
+  z-index: 999;
+}
+
+/* Show bottom sheet when checked */
+#toggle-more:checked ~ .more-menu {
+  bottom: 70px; /* nav height + bottom gap */
+}
+
+/* Handle for drag look */
+.tombol .more-menu .handle {
+  width: 36px;
+  height: 4px;
+  background: var(--md-outline);
+  border-radius: 4px;
+  margin: 0 auto 16px;
+  opacity: 0.6;
+}
+
+/* Bottom sheet links */
+.tombol .more-menu a {
+  display: block;
+  padding: 16px;
+  border-radius: 16px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--md-on-surface);
+  transition: background 0.2s ease;
+}
+
+.tombol .more-menu a:hover {
+  background: var(--md-primary);
+  color: var(--md-on-primary);
+}
+
+/*---------------------------------------------*/
+/* TWEAK FOR GENERAL - OPTIONAL */
+/*---------------------------------------------*/
+
+/* Keep the element but hide its original text */
+.fs-4 {
+  color: transparent;   /* hide text */
+  position: relative;   /* needed for ::before positioning */
+}
+
+
+
+/*Tambah animasi pada menu sidebar*/
+.ms-sidebar .nav-item {
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #0000;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease;
+}
+
+.ms-sidebar .nav-item:hover {
+  transform: translateY(-4px);
+}
+
+.ms-sidebar .nav-item a {
+  display: block;
+  background: white; 
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Remove sidebar border */
+.ms-sidebar.card {
+  border: none !important;
+  box-shadow: none !important; /* optional: remove shadow if visible */
+}
+
+/* Default: hide nav on large screens */
+.tombol .bottom-nav,
+.tombol .more-menu {
+  display: none;
+}
+
+/*---------------------------------------------*/
+/* TWEAK FOR MOBILE - OPTIONAL */
+/*---------------------------------------------*/
+
+/* Mobile screens only (up to 768px) */
+@media (max-width: 768px) {
+  /* SHOW NAVIGATION BAR */
+  .tombol .bottom-nav,
+  .tombol .more-menu {
+    display: flex; /* bottom-nav uses flex */
+
+  }
+    .tombol .more-menu {
+    flex-direction: column;
+  }
+
+  /* HIDE FOOTER */
+  footer .footer {
+    display: none;
+  }
+
+  /* HIDE PAGE TITLE */
+  .ms-sidebar {
+    display: none;
+  }
+
+  /* HIDE PAGE TITLE */
+  .fs-4 {
+    display: none;
+  }
+
+  /* Hide the "Diterbitkan pada" text only inside content-wrapper */
+  .content-wrapper .d-flex.text-black-50.small .me-1 {
+    display: none !important;
+  }
+
+    /* Hide the date only inside content-wrapper */
+  .content-wrapper .d-flex.text-black-50.small p.mb-0 {
+    display: none !important;
+  }
+  
+} 
