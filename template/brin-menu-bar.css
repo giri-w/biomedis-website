@@ -235,7 +235,7 @@
   }
 
   /* HIDE BREADCRUMB */
-  main .col-md-12:first-child {
+  .col-md-12 {
     display: none !important;
   }
     
