@@ -234,6 +234,11 @@
     display: none;
   }
 
+  /* HIDE BREADCRUMB */
+  .breadcrumb {
+    display: none !important;
+  }
+
   /* Hide the "Diterbitkan pada" text only inside content-wrapper */
   .content-wrapper .d-flex.text-black-50.small .me-1 {
     display: none !important;
