@@ -1,11 +1,11 @@
 /* ================= Material You Colors ================= */
 :root {
   /* Material You Core Colors */
-  --md-primary: #E62f2A;          /* primary color */
-  --md-on-primary: #FFFFFF;       /* text/icon on primary */
-  --md-surface: #FFFBFE;          /* background */
-  --md-on-surface: #1C1B1F;       /* text/icon on surface */
-  --md-surface-variant: #E7E0EC;  /* hover/secondary background */
+  --md-primary: #D9EAF8;          /* primary color */
+  --md-on-primary: #3478c6;       /* text/icon on primary */
+  --md-surface: #3853b5f0;          /* background */
+  --md-on-surface: #ffffff;       /* text/icon on surface */
+  --md-surface-variant: #d45044;  /* hover/secondary background */
   --md-shadow: 0 -8px 24px rgba(0,0,0,0.22);
 }
 
@@ -47,6 +47,8 @@
 
   background: var(--md-surface);
   color: var(--md-on-surface);
+
+  border: 2px solid var(--md-primary);
 
   border-radius: 14px;
   box-shadow: 0 6px 18px rgba(0,0,0,0.18), 0 2px 6px rgba(0,0,0,0.12);
@@ -100,7 +102,7 @@
   background: var(--md-surface);
   border-radius: 24px 24px 0 0; /* only top corners rounded */
   box-shadow: var(--md-shadow);
-  padding: 16px 16px 24px;
+  padding: 8px 16px 16px;
   overflow-y: auto;
   transition: bottom 0.35s cubic-bezier(.4,0,.2,1);
   z-index: 999;
@@ -117,14 +119,14 @@
   height: 4px;
   background: var(--md-outline);
   border-radius: 4px;
-  margin: 0 auto 16px;
+  margin: 0 auto 8px;
   opacity: 0.6;
 }
 
 /* Bottom sheet links */
 .tombol .more-menu a {
   display: block;
-  padding: 16px;
+  padding: 12px 16px;
   border-radius: 16px;
   text-decoration: none;
   font-size: 15px;
@@ -193,11 +195,29 @@
   .tombol .bottom-nav,
   .tombol .more-menu {
     display: flex; /* bottom-nav uses flex */
+    align-items: left;
+    gap: 10px;
+    text-decoration: none;
 
   }
     .tombol .more-menu {
     flex-direction: column;
   }
+
+  .more-menu a {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Change this value */
+}
+
+.more-menu a .material-symbols-outlined {
+    font-size: 24px;
+    line-height: 1;
+    flex-shrink: 0;
+    position: relative;
+    top: 6px; 
+    margin-right: 10px;
+}
 
   /* HIDE FOOTER */
   footer .footer {
