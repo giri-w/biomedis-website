@@ -235,9 +235,14 @@
   }
 
   /* HIDE BREADCRUMB */
+  main .col-md-12:first-child {
+    display: none !important;
+  }
+    
   .breadcrumb {
     display: none !important;
   }
+  
 
   /* Hide the "Diterbitkan pada" text only inside content-wrapper */
   .content-wrapper .d-flex.text-black-50.small .me-1 {
